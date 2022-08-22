@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "zombiesmod",
+  "version": "${version}",
+
+  "name": "Zombies Mod",
+  "description": "Placeholder",
+  "authors": [
+    "thamid"
+  ],
+
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.github.tahmid_23.zombiesmod.mod.ZombiesModPlatform"
+    ]
+  },
+  "accessWidener": "zombiesmod.${mcVersionStr}.accesswidener",
+  "mixins": [
+    "mixins.zombiesmod.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "fabric": "*",
+    "minecraft": "${mcVersionStr}",
+    "java": ">=16"
+  }
+}

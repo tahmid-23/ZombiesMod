@@ -1,0 +1,161 @@
+public class com/github/tahmid_23/zombiesmod/chat/ComponentUtil {
+	@1.8.9-forge
+	public static fun setColor (Lnet/minecraft/util/IChatComponent;Lnet/minecraft/util/EnumChatFormatting;)Lnet/minecraft/util/IChatComponent;
+	@1.16.2-forge
+	public static fun setColor (Lnet/minecraft/util/text/IFormattableTextComponent;Lnet/minecraft/util/text/TextFormatting;)Lnet/minecraft/util/text/ITextComponent;
+	@1.16.2-fabric,1.18.2-fabric
+	public static fun setColor (Lnet/minecraft/text/MutableText;Lnet/minecraft/util/Formatting;)Lnet/minecraft/text/Text;
+}
+
+public class com/github/tahmid_23/zombiesmod/event/ClientJoinServerEvent {
+	public static final field EVENT Lcom/github/tahmid_23/zombiesmod/event/Event;
+}
+
+public abstract interface class com/github/tahmid_23/zombiesmod/event/ClientJoinServerEvent$JoinServerListener {
+	public abstract fun onJoin (Lio/netty/channel/Channel;)V
+}
+
+public class com/github/tahmid_23/zombiesmod/event/Event {
+	public fun <init> (Ljava/util/function/Function;)V
+	public fun getInvoker ()Ljava/lang/Object;
+	public fun register (Ljava/lang/Object;)V
+	public fun unregister (Ljava/lang/Object;)V
+}
+
+public class com/github/tahmid_23/zombiesmod/event/PacketEvents {
+	public static final field PACKET_IN Lcom/github/tahmid_23/zombiesmod/event/Event;
+	public static final field PACKET_OUT Lcom/github/tahmid_23/zombiesmod/event/Event;
+}
+
+public abstract interface class com/github/tahmid_23/zombiesmod/event/PacketEvents$PacketInListener {
+	@1.16.2-forge
+	public abstract fun readPacket (Lio/netty/channel/ChannelHandlerContext;Lnet/minecraft/network/IPacket;)Z
+	@1.16.2-fabric,1.18.2-fabric,1.8.9-forge
+	public abstract fun readPacket (Lio/netty/channel/ChannelHandlerContext;Lnet/minecraft/network/Packet;)Z
+}
+
+public abstract interface class com/github/tahmid_23/zombiesmod/event/PacketEvents$PacketOutListener {
+	@1.16.2-forge
+	public abstract fun writePacket (Lio/netty/channel/ChannelHandlerContext;Lnet/minecraft/network/IPacket;Lio/netty/channel/ChannelPromise;)Z
+	@1.16.2-fabric,1.18.2-fabric,1.8.9-forge
+	public abstract fun writePacket (Lio/netty/channel/ChannelHandlerContext;Lnet/minecraft/network/Packet;Lio/netty/channel/ChannelPromise;)Z
+}
+
+public class com/github/tahmid_23/zombiesmod/event/RenderPlayerEvent {
+	public static final field EVENT Lcom/github/tahmid_23/zombiesmod/event/Event;
+}
+
+public abstract interface class com/github/tahmid_23/zombiesmod/event/RenderPlayerEvent$RenderPlayerListener {
+	@1.8.9-forge
+	public abstract fun shouldRenderPlayer (Lnet/minecraft/client/entity/AbstractClientPlayer;)Z
+	@1.16.2-forge
+	public abstract fun shouldRenderPlayer (Lnet/minecraft/client/entity/player/AbstractClientPlayerEntity;)Z
+	@1.16.2-fabric,1.18.2-fabric
+	public abstract fun shouldRenderPlayer (Lnet/minecraft/client/network/AbstractClientPlayerEntity;)Z
+}
+
+public class com/github/tahmid_23/zombiesmod/event/TickEvent {
+	public static final field EVENT Lcom/github/tahmid_23/zombiesmod/event/Event;
+}
+
+public abstract class com/github/tahmid_23/zombiesmod/keybind/KeybindingAction : java/lang/Runnable {
+	@1.18.2-fabric
+	public fun <init> (Lnet/minecraft/client/option/KeyBinding;)V
+	@1.16.2-forge,1.8.9-forge
+	public fun <init> (Lnet/minecraft/client/settings/KeyBinding;)V
+	@1.16.2-fabric
+	public fun <init> (Lnet/minecraft/client/options/KeyBinding;)V
+	protected abstract fun onPress ()V
+	public fun run ()V
+}
+
+public class com/github/tahmid_23/zombiesmod/keybind/ToggleKeybindingAction : com/github/tahmid_23/zombiesmod/keybind/KeybindingAction {
+	@1.18.2-fabric
+	public fun <init> (Lnet/minecraft/client/option/KeyBinding;Lnet/minecraft/client/MinecraftClient;Lcom/github/tahmid_23/zombiesmod/util/Toggleable;)V
+	@1.16.2-forge,1.8.9-forge
+	public fun <init> (Lnet/minecraft/client/settings/KeyBinding;Lnet/minecraft/client/Minecraft;Lcom/github/tahmid_23/zombiesmod/util/Toggleable;)V
+	@1.16.2-fabric
+	public fun <init> (Lnet/minecraft/client/options/KeyBinding;Lnet/minecraft/client/MinecraftClient;Lcom/github/tahmid_23/zombiesmod/util/Toggleable;)V
+	protected fun onPress ()V
+}
+
+@1.18.2-fabric
+public abstract interface class com/github/tahmid_23/zombiesmod/mixin/PlayerInteractEntityC2SPacketAccessor {
+	public abstract fun getEntityId ()I
+	public abstract fun getType ()Lnet/minecraft/network/packet/c2s/play/PlayerInteractEntityC2SPacket$InteractTypeHandler;
+}
+
+public class com/github/tahmid_23/zombiesmod/mod/ZombiesMod {
+	public fun <init> ()V
+	public fun initializeEvents ()V
+	public fun initializeKeybinds ()V
+}
+
+@1.16.2-forge,1.8.9-forge
+public class com/github/tahmid_23/zombiesmod/mod/ZombiesModPlatform {
+	public fun <init> ()V
+	@1.8.9-forge
+	public fun onFMLInitialization (Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V
+}
+
+@1.16.2-fabric,1.18.2-fabric
+public class com/github/tahmid_23/zombiesmod/mod/ZombiesModPlatform : net/fabricmc/api/ClientModInitializer {
+	public fun <init> ()V
+	public fun onInitializeClient ()V
+}
+
+public class com/github/tahmid_23/zombiesmod/network/PacketChannelHandler {
+	public static fun forEvents (Lcom/github/tahmid_23/zombiesmod/event/Event;Lcom/github/tahmid_23/zombiesmod/event/Event;)Lio/netty/channel/ChannelHandler;
+}
+
+public class com/github/tahmid_23/zombiesmod/render/PlayerRenderTester : com/github/tahmid_23/zombiesmod/event/RenderPlayerEvent$RenderPlayerListener, com/github/tahmid_23/zombiesmod/util/Toggleable {
+	@1.16.2-forge,1.8.9-forge
+	public fun <init> (Lnet/minecraft/client/Minecraft;D)V
+	@1.8.9-forge
+	public fun getDisplayName ()Lnet/minecraft/util/IChatComponent;
+	@1.16.2-forge
+	public fun getDisplayName ()Lnet/minecraft/util/text/ITextComponent;
+	@1.16.2-fabric,1.18.2-fabric
+	public fun <init> (Lnet/minecraft/client/MinecraftClient;D)V
+	@1.16.2-fabric,1.18.2-fabric
+	public fun getDisplayName ()Lnet/minecraft/text/Text;
+	public fun isEnabled ()Z
+	public fun setEnabled (Z)V
+	@1.8.9-forge
+	public fun shouldRenderPlayer (Lnet/minecraft/client/entity/AbstractClientPlayer;)Z
+	@1.16.2-forge
+	public fun shouldRenderPlayer (Lnet/minecraft/client/entity/player/AbstractClientPlayerEntity;)Z
+	@1.16.2-fabric,1.18.2-fabric
+	public fun shouldRenderPlayer (Lnet/minecraft/client/network/AbstractClientPlayerEntity;)Z
+}
+
+public abstract interface class com/github/tahmid_23/zombiesmod/util/Toggleable {
+	@1.8.9-forge
+	public abstract fun getDisplayName ()Lnet/minecraft/util/IChatComponent;
+	@1.16.2-forge
+	public abstract fun getDisplayName ()Lnet/minecraft/util/text/ITextComponent;
+	@1.16.2-fabric,1.18.2-fabric
+	public abstract fun getDisplayName ()Lnet/minecraft/text/Text;
+	public abstract fun isEnabled ()Z
+	public abstract fun setEnabled (Z)V
+}
+
+public class com/github/tahmid_23/zombiesmod/zhf/ZHFPacketHandler : com/github/tahmid_23/zombiesmod/event/PacketEvents$PacketOutListener, com/github/tahmid_23/zombiesmod/util/Toggleable {
+	@1.16.2-forge,1.8.9-forge
+	public fun <init> (Lnet/minecraft/client/Minecraft;)V
+	@1.8.9-forge
+	public fun getDisplayName ()Lnet/minecraft/util/IChatComponent;
+	@1.16.2-forge
+	public fun getDisplayName ()Lnet/minecraft/util/text/ITextComponent;
+	@1.16.2-fabric,1.18.2-fabric
+	public fun <init> (Lnet/minecraft/client/MinecraftClient;)V
+	@1.16.2-fabric,1.18.2-fabric
+	public fun getDisplayName ()Lnet/minecraft/text/Text;
+	public fun isEnabled ()Z
+	public fun setEnabled (Z)V
+	@1.16.2-forge
+	public fun writePacket (Lio/netty/channel/ChannelHandlerContext;Lnet/minecraft/network/IPacket;Lio/netty/channel/ChannelPromise;)Z
+	@1.16.2-fabric,1.18.2-fabric,1.8.9-forge
+	public fun writePacket (Lio/netty/channel/ChannelHandlerContext;Lnet/minecraft/network/Packet;Lio/netty/channel/ChannelPromise;)Z
+}
+

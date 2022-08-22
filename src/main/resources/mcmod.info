@@ -1,0 +1,7 @@
+[{
+  "modid": "zombiesmod",
+  "name": "Zombies Mod",
+  "version": "0.0.1-SNAPSHOT",
+  "mcversion": "${mcVersionStr}",
+  "authorList": ["thamid"]
+}]

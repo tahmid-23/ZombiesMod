@@ -1,0 +1,17 @@
+net.minecraft.client.world.ClientWorld net.minecraft.client.multiplayer.WorldClient
+net.minecraft.entity.item.ArmorStandEntity net.minecraft.entity.item.EntityArmorStand
+net.minecraft.client.entity.player.ClientPlayerEntity net.minecraft.client.entity.EntityPlayerSP
+net.minecraft.client.entity.player.AbstractClientPlayerEntity net.minecraft.client.entity.AbstractClientPlayer
+
+net.minecraft.network.play.client.CUseEntityPacket net.minecraft.network.play.client.C02PacketUseEntity
+net.minecraft.network.IPacket net.minecraft.network.Packet
+
+net.minecraft.util.text.ITextComponent net.minecraft.util.IChatComponent
+net.minecraft.util.text.ITextComponent appendString() appendText()
+net.minecraft.util.text.ITextComponent append() appendSibling()
+net.minecraft.util.text.StringTextComponent net.minecraft.util.ChatComponentText
+net.minecraft.util.text.TranslationTextComponent net.minecraft.util.ChatComponentTranslation
+net.minecraft.util.text.Style net.minecraft.util.ChatStyle
+net.minecraft.util.text.TextFormatting net.minecraft.util.EnumChatFormatting
+
+net.minecraftforge.event.TickEvent net.minecraftforge.fml.common.gameevent.TickEvent

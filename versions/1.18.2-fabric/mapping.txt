@@ -1,0 +1,1 @@
+net.minecraft.network.packet.c2s.play.PlayerInteractEntityC2SPacket$InteractType net.minecraft.network.packet.c2s.play.PlayerInteractEntityC2SPacket$InteractionType

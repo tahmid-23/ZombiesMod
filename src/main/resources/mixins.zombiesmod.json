@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.github.tahmid_23.zombiesmod.mixin",
+  "mixins": [],
+  "server": [],
+  "client": [
+    "PlayerEntityRendererMixin",
+    "PlayerInteractEntityC2SPacketAccessor",
+    "ServerNetworkIoMixin"
+  ],
+  "compatibilityLevel": "JAVA_16",
+  "minVersion": "0.8"
+}
